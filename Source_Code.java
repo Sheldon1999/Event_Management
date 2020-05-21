@@ -257,7 +257,9 @@ class Home_page extends JFrame {
 				String Date = null,Time = null,Timing = "Two Hours",venue = "Training and placement cell",prizes = "prizes will be distributed at 04:30PM(after events) in Training and Placement Cell",extra = "> please reach 15min before Event.";
 
 				if(item == "Code Crunch") {
+					//This is database
 					Department = "CSIT";
+					//This is a table inside databse above.
 					Event = "Code_Crunch";
 					Date = "22-03-2019";
 					Time = "10:00 AM";
