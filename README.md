@@ -18,15 +18,15 @@ This is a very simple DBMS project. It is actually an [**standalone(portable) ap
 
 ## Local setup
 
-1. install all the dependecies above(_install JDK11 or later_).
-2. download [EMS.jar](https://github.com/Sheldon1999/Event_Management/blob/master/EMS.jar)
-3. open command prompt or terminal go to the directory where jar file is downloaded.
-4. make a mysql user named ```superadmin``` and set password ```Super@1999```.
-5. To make databases and tables see the [source code](https://github.com/Sheldon1999/Event_Management/blob/master/Source_Code.java) from line 259. Here ```Department``` are databses and ```Event``` are tables.
-6. Every table will contain follwing entities:
+1. install all the dependecies above(_install JDK11 or later_). 
+2. make a mysql user named ```superadmin``` and set password ```Super@1999```.
+3. To make databases and tables see the [source code](https://github.com/Sheldon1999/Event_Management/blob/master/Source_Code.java) from line 259. Here ```Department``` are databses and ```Event``` are tables.
+4. Every table will contain follwing entities:
   - Name (VARCHAR)
   - Department (VARCHAR)
   - Semester (VARCHAR)
   - Contact_No (INT)
   - Gmail (VARCHAR)
-4. After setting up everything,run ```java -jar EMS.jar```.
+5. download [EMS.jar](https://github.com/Sheldon1999/Event_Management/blob/master/EMS.jar)
+6. open command prompt or terminal go to the directory where jar file is downloaded.
+7. After setting up everything,run ```java -jar EMS.jar```.
