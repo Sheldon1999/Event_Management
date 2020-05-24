@@ -1,7 +1,7 @@
 # Event Management System
 
 ## Overview
-This is a very simple DBMS project. It is actually an [**standalone(portable) application**](https://www.quora.com/What-is-a-standalone-application). Theme of application is **Event Management**(college events). This project can be very helpful to those who just started with [these](#technologies) technologies. ER diagram is given [here](#entityrelationshipdiagram).
+This is a very simple DBMS project. It is actually an [**standalone(portable) application**](https://www.quora.com/What-is-a-standalone-application). Theme of application is **Event Management**(college events). This project can be very helpful to those who just started with [these](#technologies) technologies. ER diagram is given [here](#entity-relationship-diagram).
 
 ## Technologies
 
