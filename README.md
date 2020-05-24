@@ -1,7 +1,7 @@
 # Event Management System
 
 ## Overview
-This is a very simple DBMS project. It is actually an [**standalone(portable) application**](https://www.quora.com/What-is-a-standalone-application). Theme of application is **Event Management**(college events). This project can be very helpful to those who just started with [these](#technologies) technologies.
+This is a very simple DBMS project. It is actually an [**standalone(portable) application**](https://www.quora.com/What-is-a-standalone-application). Theme of application is **Event Management**(college events). This project can be very helpful to those who just started with [these](#technologies) technologies. ER diagram is given [here](#entityrelationshipdiagram).
 
 ## Technologies
 
@@ -35,4 +35,26 @@ This is a very simple DBMS project. It is actually an [**standalone(portable) ap
 
 ### Home page
 
-[!Home_page](https://github.com/Sheldon1999/Event_Management/blob/master/screenshots/image3.jpg)
+![Home_page](https://github.com/Sheldon1999/Event_Management/blob/master/screenshots/image3.jpg)
+![Home page](https://github.com/Sheldon1999/Event_Management/blob/master/screenshots/image2.jpg)
+![Home page](https://github.com/Sheldon1999/Event_Management/blob/master/screenshots/image7.jpg)
+
+### superadmin login page
+
+![superadmin login page](https://github.com/Sheldon1999/Event_Management/blob/master/screenshots/image5.jpg)
+
+### registration page
+
+![registration page](https://github.com/Sheldon1999/Event_Management/blob/master/screenshots/image6.jpg)
+
+### registered student list page
+
+![registered students](https://github.com/Sheldon1999/Event_Management/blob/master/screenshots/image4.jpg)
+
+### registration confirmation page
+
+![registration confirmed](https://github.com/Sheldon1999/Event_Management/blob/master/screenshots/image9.jpg)
+
+### Entity Relationship Diagram
+
+![er diagram](https://github.com/Sheldon1999/Event_Management/blob/master/screenshots/image8.png)
