@@ -30,3 +30,9 @@ This is a very simple DBMS project. It is actually an [**standalone(portable) ap
 5. download [EMS.jar](https://github.com/Sheldon1999/Event_Management/blob/master/EMS.jar)
 6. open command prompt or terminal go to the directory where jar file is downloaded.
 7. After setting up everything,run ```java -jar EMS.jar```.
+
+## Screenshots
+
+### Home page
+
+[!Home_page](https://github.com/Sheldon1999/Event_Management/blob/master/screenshots/image3.jpg)
