@@ -68,12 +68,9 @@ class EventManagement extends JFrame {
 	//Code for Home Page: 
 	  public void Home() {
 		  f1.setLocationRelativeTo(null);
-			// set icon for window
-			Icon logo_b = new ImageIcon("logo_b.png");
-			// this.setIconImage(logo_b.getImage());
 
 			// set logo for window
-			Icon logo_a = new ImageIcon(getClass().getResource("logo_a.png"));
+			Icon logo_a = new ImageIcon(getClass().getClassLoader().getResource("images/home/logo.png"));
 			JPanel pan = new JPanel();
 			JLabel back;
 			back = new JLabel(logo_a);
@@ -82,9 +79,8 @@ class EventManagement extends JFrame {
 			f1.add(pan, BorderLayout.NORTH);
 
 			// icons for buttons:
-			Icon students_s = new ImageIcon(getClass().getResource("students_s.png"));
-			Icon event_s = new ImageIcon(getClass().getResource("event_s.png"));
-			Icon admin_s = new ImageIcon(getClass().getResource("admin_s.png"));
+			Icon students_s = new ImageIcon(getClass().getClassLoader().getResource("images/home/students_logo.jpeg"));
+			Icon admin_s = new ImageIcon(getClass().getClassLoader().getResource("images/home/admin_logo.png"));
 			
 
 			JPanel pan1 = new JPanel();
@@ -109,7 +105,7 @@ class EventManagement extends JFrame {
 			f1.add(pan1, BorderLayout.CENTER);
 
 			f1.setTitle("EVENT MANAGEMENT SYSTEM");
-			f1.setResizable(false);
+			f1.setResizable(true);
 			f1.setVisible(true);
 			f1.setSize(700, 360);
 			f1.setDefaultLookAndFeelDecorated(true);
