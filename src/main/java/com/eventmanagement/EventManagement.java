@@ -1,3 +1,5 @@
+package com.eventmanagement;
+
 import java.lang.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,7 +14,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
-class Home_page extends JFrame {
+class EventManagement extends JFrame {
 
 	// needed to connect to mysql through jdbc:	
 	 private static final String dbClassName = "com.mysql.cj.jdbc.Driver";
@@ -59,7 +61,7 @@ class Home_page extends JFrame {
 	 ListenForButton listen = new ListenForButton();
 	 
 	// Constructor:
-	 Home_page() {
+	 EventManagement() {
 		Home();
 	}
 	 
@@ -528,7 +530,7 @@ class Home_page extends JFrame {
 
 }
 		public static void main(String[] arg) {
-			new Home_page();
+			new EventManagement();
 		}
 
 }
