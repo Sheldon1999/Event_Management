@@ -1,3 +1,5 @@
+package com.eventmanagement;
+
 import java.lang.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,7 +14,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
-class Home_page extends JFrame {
+class EventManagementSource extends JFrame {
 
 	// needed to connect to mysql through jdbc:	
 	 private static final String dbClassName = "com.mysql.cj.jdbc.Driver";
@@ -59,60 +61,210 @@ class Home_page extends JFrame {
 	 ListenForButton listen = new ListenForButton();
 	 
 	// Constructor:
-	 Home_page() {
+	 EventManagementSource() {
 		Home();
 	}
 	 
 	//Code for Home Page: 
-	  public void Home() {
-		  f1.setLocationRelativeTo(null);
-			// set icon for window
-			Icon logo_b = new ImageIcon("logo_b.png");
-			// this.setIconImage(logo_b.getImage());
+// 	  public void Home() {
+// 		  f1.setLocationRelativeTo(null);
 
-			// set logo for window
-			Icon logo_a = new ImageIcon(getClass().getResource("logo_a.png"));
-			JPanel pan = new JPanel();
-			JLabel back;
-			back = new JLabel(logo_a);
-			pan.add(back);
-			pan.setBackground(new Color(0, 255, 255, 50));
-			f1.add(pan, BorderLayout.NORTH);
+// 			// set logo for window
+// 			Icon logo_a = new ImageIcon(getClass().getClassLoader().getResource("images/home/logo.png"));
+// 			JPanel pan = new JPanel();
+// 			JLabel back;
+// 			back = new JLabel(logo_a);
+// 			pan.add(back);
+// 			pan.setBackground(new Color(0, 255, 255, 50));
+// 			f1.add(pan, BorderLayout.NORTH);
 
-			// icons for buttons:
-			Icon students_s = new ImageIcon(getClass().getResource("students_s.png"));
-			Icon event_s = new ImageIcon(getClass().getResource("event_s.png"));
-			Icon admin_s = new ImageIcon(getClass().getResource("admin_s.png"));
+// 			// icons for buttons:
+// 			// Load and resize the student icon
+// ImageIcon studentIcon = new ImageIcon(getClass().getClassLoader().getResource("images/home/student_logo.png"));
+// Image studentImg = studentIcon.getImage().getScaledInstance(64, 64, Image.SCALE_SMOOTH);
+// Icon students_s = new ImageIcon(studentImg);
+
+// // Load and resize the admin icon
+// ImageIcon adminIcon = new ImageIcon(getClass().getClassLoader().getResource("images/home/admin_logo.png"));
+// Image adminImg = adminIcon.getImage().getScaledInstance(64, 64, Image.SCALE_SMOOTH);
+// Icon admin_s = new ImageIcon(adminImg);
 			
 
-			JPanel pan1 = new JPanel();
+// 			JPanel pan1 = new JPanel();
 			
-			// Superadmin Button:
-			sup.setBorderPainted(false);
-			sup.setContentAreaFilled(false);
-			sup.setIcon(admin_s);
-			sup.setToolTipText("Click here to login as Superadmin and to see DataBase");
-			sup.addActionListener(listen);
+// 			// Superadmin Button:
+// 			sup.setBorderPainted(false);
+// 			sup.setContentAreaFilled(false);
+// 			sup.setIcon(admin_s);
+// 			sup.setToolTipText("Click here to login as Superadmin and to see DataBase");
+// 			sup.addActionListener(listen);
 			
-			// register Button:
-			register.setBorderPainted(false);
-			register.setContentAreaFilled(false);
-			register.setIcon(students_s);
-			register.setToolTipText("Click here to register as Participant and see details");
-			register.addActionListener(listen);
+// 			// register Button:
+// 			register.setBorderPainted(false);
+// 			register.setContentAreaFilled(false);
+// 			register.setIcon(students_s);
+// 			register.setToolTipText("Click here to register as Participant and see details");
+// 			register.addActionListener(listen);
 						
-			pan1.add(sup, BorderLayout.WEST);
-			pan1.add(register, BorderLayout.EAST);
-			pan1.setBackground(new Color(0, 255, 255, 50));
-			f1.add(pan1, BorderLayout.CENTER);
+// 			pan1.add(sup, BorderLayout.WEST);
+// 			pan1.add(register, BorderLayout.EAST);
+// 			pan1.setBackground(new Color(0, 255, 255, 50));
+// 			f1.add(pan1, BorderLayout.CENTER);
 
-			f1.setTitle("EVENT MANAGEMENT SYSTEM");
-			f1.setResizable(false);
-			f1.setVisible(true);
-			f1.setSize(700, 360);
-			f1.setDefaultLookAndFeelDecorated(true);
-			f1.setDefaultCloseOperation(EXIT_ON_CLOSE);
-	  }
+// 			f1.setTitle("EVENT MANAGEMENT SYSTEM");
+// 			f1.setResizable(true);
+// 			f1.setVisible(true);
+// 			f1.setSize(700, 360);
+// 			f1.setDefaultLookAndFeelDecorated(true);
+// 			f1.setDefaultCloseOperation(EXIT_ON_CLOSE);
+// 	  }
+
+public void Home() {
+    // Color scheme
+    Color primaryColor = new Color(63, 81, 181);     // Deep Blue
+    Color secondaryColor = new Color(255, 255, 255);  // White
+    Color accentColor = new Color(255, 167, 38);      // Amber
+    Color backgroundColor = new Color(245, 247, 250); // Light Gray Blue
+    Color textColor = new Color(33, 33, 33);          // Dark Gray
+    Color buttonHoverColor = new Color(232, 234, 246); // Light Blue Gray
+
+    // Set up the main frame properties
+    f1.setTitle("EVENT MANAGEMENT SYSTEM");
+    f1.setDefaultCloseOperation(EXIT_ON_CLOSE);
+    f1.setSize(1000, 600);  // Slightly larger for better spacing
+    f1.setLocationRelativeTo(null);
+    f1.setResizable(true);
+    
+    // Main panel with gradient background
+    JPanel mainPanel = new JPanel(new BorderLayout(20, 20)) {
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            Graphics2D g2d = (Graphics2D) g;
+            g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+            GradientPaint gp = new GradientPaint(0, 0, new Color(240, 242, 245), 
+                                                getWidth(), getHeight(), new Color(200, 210, 220));
+            g2d.setPaint(gp);
+            g2d.fillRect(0, 0, getWidth(), getHeight());
+        }
+    };
+    mainPanel.setBorder(BorderFactory.createEmptyBorder(40, 40, 40, 40));
+
+    // Left panel for logo with shadow effect
+    JPanel leftPanel = new JPanel(new BorderLayout()) {
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            Graphics2D g2d = (Graphics2D) g.create();
+            g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            g2d.setColor(secondaryColor);
+            g2d.fillRoundRect(0, 0, getWidth(), getHeight(), 20, 20);
+            
+            // Add subtle shadow
+            int shadowSize = 8;
+            for (int i = 0; i < shadowSize; i++) {
+                g2d.setColor(new Color(0, 0, 0, 10));
+                g2d.drawRoundRect(i, i, getWidth() - 2 * i, getHeight() - 2 * i, 20, 20);
+            }
+            g2d.dispose();
+        }
+    };
+    leftPanel.setOpaque(false);
+    leftPanel.setBorder(BorderFactory.createEmptyBorder(40, 40, 40, 40));
+    
+    // Load and resize the main logo
+    ImageIcon logoIcon = new ImageIcon(getClass().getClassLoader().getResource("images/home/logo.png"));
+    Image logoImg = logoIcon.getImage().getScaledInstance(450, -1, Image.SCALE_SMOOTH);
+    JLabel logoLabel = new JLabel(new ImageIcon(logoImg));
+    logoLabel.setHorizontalAlignment(JLabel.CENTER);
+    leftPanel.add(logoLabel, BorderLayout.CENTER);
+
+    // Right panel with vertical layout
+    JPanel rightPanel = new JPanel(new GridBagLayout());
+    rightPanel.setOpaque(false);
+    
+    GridBagConstraints gbc = new GridBagConstraints();
+    gbc.gridwidth = GridBagConstraints.REMAINDER;
+    gbc.fill = GridBagConstraints.HORIZONTAL;
+    gbc.insets = new Insets(15, 0, 15, 0);
+    
+    // Title label
+    JLabel titleLabel = new JLabel("WELCOME");
+    titleLabel.setFont(new Font("Arial", Font.BOLD, 28));
+    titleLabel.setForeground(primaryColor);
+    titleLabel.setHorizontalAlignment(JLabel.CENTER);
+    titleLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 20, 0));
+    rightPanel.add(titleLabel, gbc);
+    
+    // Load and resize button icons
+    ImageIcon studentIcon = new ImageIcon(getClass().getClassLoader().getResource("images/home/student_logo.png"));
+    Image studentImg = studentIcon.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
+    ImageIcon adminIcon = new ImageIcon(getClass().getClassLoader().getResource("images/home/admin_logo.png"));
+    Image adminImg = adminIcon.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
+
+    // Configure buttons with hover effects
+    JButton adminButton = createStyledButton("ADMIN LOGIN", new ImageIcon(adminImg), primaryColor, accentColor);
+    JButton studentButton = createStyledButton("STUDENT REGISTER", new ImageIcon(studentImg), primaryColor, accentColor);
+
+	sup = adminButton;
+    register = studentButton;
+    
+    // Add buttons to right panel
+    rightPanel.add(adminButton, gbc);
+    rightPanel.add(studentButton, gbc);
+
+    // Add panels to main panel
+    mainPanel.add(leftPanel, BorderLayout.CENTER);
+    mainPanel.add(rightPanel, BorderLayout.EAST);
+
+    // Add main panel to frame
+    f1.add(mainPanel);
+    f1.setVisible(true);
+}
+
+private JButton createStyledButton(String text, Icon icon, Color primaryColor, Color hoverColor) {
+    JButton button = new JButton(text, icon) {
+        @Override
+        protected void paintComponent(Graphics g) {
+            if (getModel().isPressed()) {
+                g.setColor(hoverColor.darker());
+            } else if (getModel().isRollover()) {
+                g.setColor(hoverColor);
+            } else {
+                g.setColor(primaryColor);
+            }
+            g.fillRoundRect(0, 0, getWidth(), getHeight(), 10, 10);
+            super.paintComponent(g);
+        }
+        
+        @Override
+        protected void paintBorder(Graphics g) {
+            // No border
+        }
+    };
+    
+    button.setContentAreaFilled(false);
+    button.setBorderPainted(false);
+    button.setFocusPainted(false);
+    button.setOpaque(false);
+    button.setForeground(Color.WHITE);
+    button.setFont(new Font("Arial", Font.BOLD, 14));
+    button.setHorizontalTextPosition(JButton.RIGHT);
+    button.setIconTextGap(15);
+    button.setBorder(BorderFactory.createEmptyBorder(12, 30, 12, 30));
+    button.setCursor(new Cursor(Cursor.HAND_CURSOR));
+    
+    // Set tooltips
+    if (text.contains("ADMIN")) {
+        button.setToolTipText("Click here to login as Superadmin and to see DataBase");
+        button.addActionListener(listen);
+    } else {
+        button.setToolTipText("Click here to register as Participant and see details");
+        button.addActionListener(listen);
+    }
+    
+    return button;
+}
 
 	// window to prompt password and select event to get database: 
 	  public void Pass() {
@@ -528,7 +680,7 @@ class Home_page extends JFrame {
 
 }
 		public static void main(String[] arg) {
-			new Home_page();
+			new EventManagementSource();
 		}
 
 }
