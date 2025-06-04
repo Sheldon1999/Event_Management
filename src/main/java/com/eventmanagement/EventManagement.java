@@ -9,6 +9,8 @@ import com.eventmanagement.repositories.impl.JdbcParticipantRepository;
 import com.eventmanagement.ui.pages.AdminLoginPage;
 import com.eventmanagement.ui.pages.EventDetailsPage;
 import com.eventmanagement.ui.pages.HomePage;
+import com.eventmanagement.ui.pages.StudentRegistrationPage;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -121,56 +123,6 @@ public class EventManagement extends JFrame {
         }
     }
 
-    // private void showEventDetails(String eventName) {
-    //     // Clear the current content
-    //     mainFrame.getContentPane().removeAll();
-        
-    //     // Create and add the event details page
-    //     EventDetailsPage eventDetailsPage = new EventDetailsPage(mainFrame);
-    //     eventDetailsPage.setEventName(eventName);
-        
-    //     // Set up the back button action
-    //     eventDetailsPage.setButtonListener(e -> {
-    //         if (e.getSource() == eventDetailsPage.getBackButton()) {
-    //             showAdminLogin(); // Go back to admin login
-    //         }
-    //     });
-        
-    //     // TODO: Load actual data from the database
-    //     // For now, we'll show a message that we would load data here
-    //     try {
-    //         // This is where you would load the actual data
-    //         // For example:
-    //         // ResultSet rs = databaseService.getEventRegistrations(eventName);
-    //         // eventDetailsPage.loadData(rs);
-            
-    //         // For now, show a message
-    //         JOptionPane.showMessageDialog(
-    //             mainFrame,
-    //             "Would load registrations for: " + eventName,
-    //             "Event Details",
-    //             JOptionPane.INFORMATION_MESSAGE
-    //         );
-            
-    //         // For testing, we'll just show the empty table
-    //         // eventDetailsPage.loadData(createTestData(eventName));
-            
-    //     } catch (Exception e) {
-    //         JOptionPane.showMessageDialog(
-    //             mainFrame,
-    //             "Error loading event data: " + e.getMessage(),
-    //             "Error",
-    //             JOptionPane.ERROR_MESSAGE
-    //         );
-    //         showAdminLogin(); // Go back on error
-    //         return;
-    //     }
-        
-    //     mainFrame.add(eventDetailsPage);
-    //     mainFrame.revalidate();
-    //     mainFrame.repaint();
-    // }
-
     private void showEventDetails(String eventName) {
         mainFrame.getContentPane().removeAll();
         
@@ -233,26 +185,19 @@ public class EventManagement extends JFrame {
         }.execute();
     }
 
-// Helper method to create test data (remove this in production)
-// private ResultSet createTestData(String eventName) throws SQLException {
-//     // This is just for testing - replace with actual database query
-//     String[] columns = {"ID", "Name", "Department", "Semester", "Contact", "Email"};
-//     Object[][] data = {
-//         {1, "John Doe", "CS", "5", "1234567890", "john@example.com"},
-//         {2, "Jane Smith", "IT", "6", "9876543210", "jane@example.com"},
-//         {3, "Bob Johnson", "MECH", "4", "5551234567", "bob@example.com"}
-//     };
-    
-//     DefaultTableModel model = new DefaultTableModel(data, columns);
-//     return new TableModelResultSet(model);
-// }
-
     private void showStudentRegistration() {
-        // TODO: Implement student registration page
-        JOptionPane.showMessageDialog(mainFrame, 
-            "Student Registration Clicked", 
-            "Info", 
-            JOptionPane.INFORMATION_MESSAGE);
+        mainFrame.getContentPane().removeAll();
+        
+        StudentRegistrationPage registrationPage = new StudentRegistrationPage(mainFrame);
+        registrationPage.setButtonListener(e -> {
+            if (e.getSource() == registrationPage.getBackButton()) {
+                showHomePage(); // Go back to home
+            }
+        });
+        
+        mainFrame.add(registrationPage);
+        mainFrame.revalidate();
+        mainFrame.repaint();
     }
 
     public static void main(String[] args) {

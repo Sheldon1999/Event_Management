@@ -16,11 +16,11 @@ public class JdbcParticipantRepository implements ParticipantRepository {
     private static final String FIND_BY_EVENT_ID = "SELECT * FROM participants WHERE event_id = ?";
     private static final String FIND_BY_EMAIL = "SELECT * FROM participants WHERE email = ?";
     private static final String INSERT = """
-        INSERT INTO participants (name, email, phone, department, event_id, registration_date)
-        VALUES (?, ?, ?, ?, ?, ?)""";
+        INSERT INTO participants (name, email, phone, department, semester, event_id, registration_date)
+        VALUES (?, ?, ?, ?, ?, ?, ?)""";
     private static final String UPDATE = """
         UPDATE participants 
-        SET name = ?, email = ?, phone = ?, department = ?, event_id = ?
+        SET name = ?, email = ?, phone = ?, department = ?, semester = ?, event_id = ?, registration_date = ?
         WHERE id = ?""";
     private static final String DELETE = "DELETE FROM participants WHERE id = ?";
     private static final String EXISTS_BY_ID = "SELECT COUNT(*) FROM participants WHERE id = ?";
@@ -64,7 +64,7 @@ public class JdbcParticipantRepository implements ParticipantRepository {
              PreparedStatement stmt = conn.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS)) {
             
             setParticipantStatementParameters(stmt, participant);
-            stmt.setObject(6, participant.getRegistrationDate() != null ? 
+            stmt.setObject(7, participant.getRegistrationDate() != null ? 
                 Timestamp.valueOf(participant.getRegistrationDate()) : 
                 Timestamp.valueOf(LocalDateTime.now()));
             
@@ -109,7 +109,8 @@ public class JdbcParticipantRepository implements ParticipantRepository {
         stmt.setString(2, participant.getEmail());
         stmt.setString(3, participant.getPhone());
         stmt.setString(4, participant.getDepartment());
-        stmt.setLong(5, participant.getEventId());
+        stmt.setInt(5, participant.getSemester());
+        stmt.setLong(6, participant.getEventId());
     }
 
     @Override
@@ -203,6 +204,7 @@ public class JdbcParticipantRepository implements ParticipantRepository {
         participant.setEmail(rs.getString("email"));
         participant.setPhone(rs.getString("phone"));
         participant.setDepartment(rs.getString("department"));
+        participant.setSemester(rs.getInt("semester"));
         participant.setEventId(rs.getLong("event_id"));
         participant.setRegistrationDate(rs.getTimestamp("registration_date").toLocalDateTime());
         return participant;

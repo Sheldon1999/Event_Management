@@ -13,18 +13,20 @@ public class Participant {
     private String department;
     private Long eventId;
     private LocalDateTime registrationDate;
+    private Integer semester;
     // Reference to the event (optional, for easier access)
     private Event event;
 
     // Constructors
     public Participant() {}
 
-    public Participant(String name, String email, String phone, String department, Long eventId) {
+    public Participant(String name, String email, String phone, String department, Long eventId, Integer semester) {
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.department = department;
         this.eventId = eventId;
+        this.semester = semester;
     }
 
     // Getters and Setters
@@ -44,6 +46,14 @@ public class Participant {
         this.name = name;
     }
 
+    public Integer getSemester() {
+        return semester;
+    }
+
+    public void setSemester(Integer semester) {
+        this.semester = semester;
+    }
+    
     public String getEmail() {
         return email;
     }
@@ -104,6 +114,7 @@ public class Participant {
                 ", department='" + department + '\'' +
                 ", eventId=" + eventId +
                 ", registrationDate=" + registrationDate +
+                ", semester=" + semester +
                 '}';
     }
 }
